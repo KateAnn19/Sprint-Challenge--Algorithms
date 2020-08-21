@@ -108,9 +108,6 @@ class SortingRobot:
     def reset_position(self):
         self._position = 0
 
-    def get_position(self):
-        return self._position
-
     def sort(self):
         """
         Sort the robot's list.
@@ -122,7 +119,6 @@ class SortingRobot:
             for i in range(0, len(self.get_list()) - 1):
                 self.set_item(i)
                 self.move_right()
-               
                 if self.compare_item() == 1:
                     self.swap_item()
                     self.set_list(i)
