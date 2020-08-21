@@ -95,6 +95,12 @@ class SortingRobot:
     def get_list(self):
         return self._list
 
+    def get_item(self):
+        return self._item
+    
+    def set_item(self, i):
+        self._item = self._list[i]
+
     def sort(self):
         """
         Sort the robot's list.
@@ -106,17 +112,19 @@ class SortingRobot:
         # start of the list
         # Fill this out
         while True:
-            self.set_light_off()
+            self.light_is_on() == False
             #this turns the light off and returns false
             for i in range(0, (len(self.get_list()) - 1)):
-                print(i)
-                print(len(self.get_list()) - 1)
+                self.set_item(i)
+                print(self.get_item())
+                print(f"compare {self.compare_item()}")
+                print(f"position {self._position}")
                 if self.compare_item() is None:
                     return None
                 elif self.compare_item() == 1:
                     self.swap_item()
-                    self.move_right()
                     self.set_light_on()
+                    self.move_right()
                 elif self.compare_item() == -1 or self.compare_item() == 0:
                     self.move_right()
                 
